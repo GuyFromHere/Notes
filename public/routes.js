@@ -13,26 +13,26 @@ router.get("/notes", (req, res) => {
 });
 
 router.get("/api/notes", (req, res) => {
-  /* fs.readFile("./js/db.json", (err, data) => {
+  fs.readFile("./db/db.json", (err, data) => {
     if (err) throw err;
-    const notes = JSON.parse(data);
-    res.json(notes);
-  }); */
-  res.json(notes);
+    res.json(JSON.parse(data));
+  });
 });
 
 router.post("/api/notes", (req, res) => {
+  const notes = fs.readFileSync("./db/db.json");
+  let newNote = JSON.parse(notes);
   const data = {
-    id: notes.length + 1,
+    id: newNote.length + 1,
     title: req.body.title,
     text: req.body.text
   };
+
   // add new note to notes array
-  notes.push(data);
-  // write notes array to db.json file
-  /* fs.writeFile("./db.json", notes, () => {
-    console.log("write notes to file");
-  }); */
+  newNote.push(data);
+  fs.writeFile("./db/db.json", JSON.stringify(newNote), () => {
+    console.log("wrote back to file");
+  });
   // send new note back to DOM for rendering
   res.json(data);
 });
