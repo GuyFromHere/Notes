@@ -71,6 +71,7 @@ var handleNoteDelete = function(event) {
     .parent(".list-group-item")
     .data();
 
+  // If you click the delete button for the active note, this clears the activeNote.
   if (activeNote.id === note.id) {
     activeNote = {};
   }
