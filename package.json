@@ -1,17 +1,26 @@
 {
-  "name": "note-taker",
+  "name": "notes",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
-  "author": "",
+  "author": "Dan Dismuke",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
     "mysql": "^2.16.0",
-    "nodemon": "^2.0.2"
-  }
+    "body-parser": "^1.19.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuyFromHere/Notes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GuyFromHere/Notes/issues"
+  },
+  "homepage": "https://github.com/GuyFromHere/Notes#readme"
 }
